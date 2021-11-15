@@ -4,8 +4,6 @@
 #include <motor_test/pid.h>
 #include <stdio.h>
 
-
-
 int main(int argc, char** argv)
 {
   ros::init(argc, argv, "motor_node");
@@ -33,7 +31,15 @@ int main(int argc, char** argv)
 /* //PID EXAMPLE
 int main() {
 
-    PID pid = PID(0.1, 100, -100, 0.1, 0.01, 0.5);
+        // Kp -  proportional gain
+        // Ki -  Integral gain
+        // Kd -  derivative gain
+        // dt -  loop interval time
+        // max - maximum value of manipulated variable
+        // min - minimum value of manipulated variable
+
+    PID pid = PID(0.1, 100, -100, 0.1, 0.5, 0.01); //dt, max, min, kp, ki, kd
+                                                   
 
     double val = 20;
     for (int i = 0; i < 100; i++) {
