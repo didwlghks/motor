@@ -166,10 +166,10 @@ void Motor_Controller(int motor_num, bool direction, int pwm)
         // min - minimum value of manipulated variable
 	
   PID pid = PID(0.1, 250, -250, 0.1, 0.01, 0.5);
-  for (int i = 0; i < 100; i++) {
-        double inc = pid.calculate(0, local_PWM)
-        local_PWM += inc;
-    }
+ 
+  double inc = pid.calculate(0, local_PWM)
+  local_PWM += inc;
+  
 
   if(motor_num == 1)
   {
