@@ -2,6 +2,7 @@
 #include <ros/ros.h>
 #include <motor_test/motor_node.h>
 #include <motor_test/pid.h>
+#include <stdio.h>
 
 int main(int argc, char** argv)
 {
