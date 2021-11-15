@@ -6,6 +6,7 @@
 #include <ros/ros.h>
 #include <motor_test/motor_node.h>
 #include <fstream>
+#include <motor_test/pid.h>
 
 void Text_Input(void)
 {
@@ -156,6 +157,11 @@ void Initialize(void)
 void Motor_Controller(int motor_num, bool direction, int pwm)
 {
   int local_PWM = Limit_Function(pwm);
+  PID pid = PID(0.1, 100, -100, 0.1, 0.01, 0.5);
+  for (int i = 0; i < 100; i++) {
+        double inc = pid.calculate(0, local_PWM)
+        local_PWM += inc;
+    }
 
   if(motor_num == 1)
   {
