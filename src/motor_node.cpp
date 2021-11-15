@@ -157,7 +157,7 @@ void Initialize(void)
 void Motor_Controller(int motor_num, bool direction, int pwm)
 {
   int local_PWM = Limit_Function(pwm);
-  PID pid = PID(0.1, 100, -100, 0.1, 0.01, 0.5);
+  PID pid = PID(0.1, 250, -250, 0.1, 0.01, 0.5);
   for (int i = 0; i < 100; i++) {
         double inc = pid.calculate(0, local_PWM)
         local_PWM += inc;
